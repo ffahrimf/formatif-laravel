@@ -1,5 +1,5 @@
 @extends('theme.default')
-@section('title', 'Barang')
+@section('title', 'Dosen')
 @section('content')
 
     <div class="content-wrapper">
@@ -30,9 +30,9 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="text-right">
-                                <a href="/print-barang" class="btn btn-info"><i class="fa-solid fa-print"></i> Cetak</a>
-                                <a href="/barang/create" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add
-                                        Barang</a>
+                                <a href="/print" target="blank" class="btn btn-info"><i class="fa-solid fa-print"></i> Cetak</a>
+                                <a href="/dosen/create" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add
+                                        Dosen</a>
                                 </div>
                             </div>
                             <!-- /.card-header -->
@@ -43,32 +43,28 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Nama</th>
-                                            <th>Category</th>
-                                            <th>Supplier</th>
-                                            <th>Stock</th>
-                                            <th>Price</th>
-                                            <th>Note</th>
+                                            <th>Program Studi</th>
+                                            <th>Jabatan</th>
+                                            <th>Alamat</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($barang as $data)
+                                        @foreach ($dosen as $data)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $data->name }}</td>
-                                                <td>{{ $data->category }}</td>
-                                                <td> {{ $data->supplier }}</td>
-                                                <td>{{ $data->stock }}</td>
-                                                <td>Rp. {{ number_format($data->price, 0) }}</td>
-                                                <td>{{ $data->note }}</td>
+                                                <td>{{ $data->prodi }}</td>
+                                                <td> {{ $data->jabatan }}</td>
+                                                <td>{{ $data->alamat }}</td>
                                                 <td>
-                                                    <form class="d-inline" action="/barang/{{ $data->id_barang }}/edit"
+                                                    <form class="d-inline" action="/dosen/{{ $data->id_dosen }}/edit"
                                                         method="GET">
                                                         <button type="submit" class="btn btn-success btn-sm mr-1">
                                                             <i class="fa-solid fa-pen"></i> Edit
                                                         </button>
                                                     </form>
-                                                    <form class="d-inline" action="/barang/{{ $data->id_barang }}"
+                                                    <form class="d-inline" action="/dosen/{{ $data->id_dosen }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('delete')

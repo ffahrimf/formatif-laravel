@@ -12,7 +12,7 @@
     <meta name="author" content="">
 
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>eDosen</title>
 
 
     <!-- Custom fonts for this template-->
@@ -30,7 +30,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{!! asset('css/sb-admin-2.min.css') !!}" rel="stylesheet">
-
+<link rel="shortcut icon" href="img/male-teacher.png" type="image/x-icon">
 
 </head>
 

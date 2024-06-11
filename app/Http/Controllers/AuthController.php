@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\User;
+use App\Models\Dosen;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -72,7 +73,11 @@ class AuthController extends Controller
     public function myHome()
     {
         if (Auth::check()) {
-            return view('myHome');
+            $dosen = Dosen::count();
+
+            return view('myHome', [
+                'tdosen' => $dosen,
+            ]);
         } else {
             return redirect('/login');
         }

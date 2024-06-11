@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{BarangController,AuthController};
+use App\Http\Controllers\{DosenController, AuthController, PDFController};
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +24,7 @@ Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register', [AuthController::class, 'process']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
-Route::resource('/barang', BarangController::class)->middleware('auth');
+Route::resource('/dosen', DosenController::class)->middleware('auth');
+Route::get('/print', [PDFController::class, 'printDosen'])->middleware('auth');
 
 Route::get('/myHome', [AuthController::class, 'myHome'])->middleware('auth');
-// Route::get('/print-barang', [BarangController::class, 'printBarang'])->middleware('auth');
-
-
-
-
-
